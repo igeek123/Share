@@ -49,9 +49,23 @@ class User_model extends CI_Model
 					return '0';
 			}
 	}
-	function update_profile()
-	{	
-			
+	/*
+	Function    :: Profile User
+	Description :: Update user profile by pre-filled data.
+	Last update :: 25th June 2013
+	Module      :: User Management
+	*/
+	function user_profile()
+	{		
+			session_start();
+			$query = $this->db->query("SELECT * FROM users WHERE ID='".$this->session->userdata('userid')."'");
+			$data = $query->result_array();
+			$this->load->library('parser');
+			$data = array(
+              'username'   => $data[0]['username'],
+			  'email'=> $data[0]['email']
+            );
+			return $data;
 	}
 	
 }

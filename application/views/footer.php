@@ -12,7 +12,7 @@
 	  </tr>
 	  <tr>
 		<td>&nbsp;</td>
-		<td align="center">&nbsp;Canvas page</td>
+		<td align="center">Footer code</td>
 	  </tr>
 	  <tr>
 		<td width="10">&nbsp;</td>

@@ -12,7 +12,8 @@
 	  </tr>
 	  <tr>
 		<td>&nbsp;</td>
-		<td align="center">&nbsp;Canvas page</td>
+		<td align="center"><font color="#FFFFFF" size="+1"><b>Welcome <?php $session_username = $this->session->userdata('name'); echo $session_username;?></b></font></td>
+		<td>&nbsp;<?php echo anchor('user/logout', 'Logout', 'title="Logout"');?></td>
 	  </tr>
 	  <tr>
 		<td width="10">&nbsp;</td>
