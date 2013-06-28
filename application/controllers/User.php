@@ -106,7 +106,27 @@ class User extends CI_Controller {
 		$return=UI::handle_UI('users','dropdown');
 		
 	}
-	
+	public function profile_upload()
+	{
+		$config['upload_path'] = './uploads/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		
+		$this->load->library('upload', $config);
+
+		if ( ! $this->upload->do_upload())
+		{
+			$error = array('error' => $this->upload->display_errors());
+
+			$this->load->view('profile', $error);
+		}
+		else
+		{
+			$data = array('upload_data' => $this->upload->data());
+			$this->load->model('User_model');
+			$this->User_model->update_profile_pic($_FILES['userfile']['name']);
+			$this->load->view('profile', $data);
+		}
+	}
 	public function logout()
 	{
 		$session_data = array(

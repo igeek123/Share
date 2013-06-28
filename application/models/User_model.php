@@ -63,9 +63,21 @@ class User_model extends CI_Model
 			$this->load->library('parser');
 			$data = array(
               'username'   => $data[0]['username'],
-			  'email'=> $data[0]['email']
+			  'email'=> $data[0]['email'],
+			  'pic'=> $data[0]['profile_pic']
             );
 			return $data;
+	}
+	/*
+	Function    :: Add profile picture of User
+	Description :: Update  profile .
+	Last update :: 25th June 2013
+	Module      :: User Management
+	*/
+	function update_profile_pic($pic)
+	{		
+			session_start();
+			$query = $this->db->query("UPDATE users SET profile_pic='".$pic."' WHERE ID='".$this->session->userdata('userid')."'");
 	}
 	
 }
